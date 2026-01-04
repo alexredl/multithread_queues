@@ -3,12 +3,13 @@
 
 #include <stdio.h>
 
+// type definition of the value
 typedef int value_t;
 
-// node definition
+// node definition (general here)
 typedef struct node node;
 
-// queue definition
+// queue definition (general here)
 typedef struct queue queue;
 
 // statistics definition

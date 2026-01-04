@@ -62,7 +62,7 @@ int experiment_equal(int threads, int duration, int eb_min, int eb_max, int db_m
 
   stats *ss = (stats*)calloc(threads, sizeof(stats));
   if (ss == NULL) {
-    printf("ERROR: Unable to allocate shit\n");
+    printf("ERROR: Unable to allocate s.... Buy more RAM\n");
     destroy(q);
     return 1;
   }
@@ -98,7 +98,7 @@ int experiment_unequal(int threads, int duration, int *Ebs, int *Dbs) {
 
   stats *ss = (stats*)calloc(threads, sizeof(stats));
   if (ss == NULL) {
-    printf("ERROR: Unable to allocate shit\n");
+    printf("ERROR: Unable to allocate s.... Buy more RAM\n");
     destroy(q);
     return 1;
   }
@@ -195,7 +195,7 @@ int check_correctness(int threads, int duration) {
 
 // start the experiment with user provided parameters
 int main(int argc, char** argv) {
-  // decrease malloc arena count; otherwise nebula cannot do shit for > 50 threads
+  // decrease malloc arena count; otherwise nebula cannot do s... as RAM goes brrrrrr for > 50 threads
   mallopt(M_ARENA_MAX, 1);
 
   int threads = omp_get_max_threads();
@@ -267,7 +267,15 @@ int main(int argc, char** argv) {
   if (help == 1) {
     printf("Usage: \n");
     printf("%s:\n", argv[0]);
-    
+    printf(" -n <i>: number of threads\n");
+    printf(" -t <i>: duration in seconds\n");
+    printf(" -r <i>: number of repetitions\n");
+    printf(" -c: check for correctness\n");
+    printf(" -h: display this help menu\n");
+    printf(" -e <i>/<i>,<i>: enqueue batch size (size or min,max)\n");
+    printf(" -d <i>/<i>,<i>: dequeue batch size (size or min,max)\n");
+    printf(" -E <i>,...: enqueue batch size (per thread)\n");
+    printf(" -D <i>,...: dequeue batch size (per thread)\n");
     return 0;
   }
 
@@ -288,7 +296,7 @@ int main(int argc, char** argv) {
     Ebs = (int*)malloc(threads * sizeof(int));
     Dbs = (int*)malloc(threads * sizeof(int));
     if (Ebs == NULL || Dbs == NULL) {
-      printf("ERROR: Unable to allocate shit\n");
+      printf("ERROR: Unable to allocate s.... Buy more RAM\n");
       free(Ebs);
       free(Dbs);
       return 1;

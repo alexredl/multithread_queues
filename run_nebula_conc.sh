@@ -4,6 +4,9 @@
 
 ZIP=$1
 PROG=$2
+TIMES=$3
+BATCH_SIZES=$4
+THREADS=$5
 LOG=nebula.log
 DIR_LOC=data
 DIR_NEB=hubble
@@ -78,9 +81,9 @@ run_neb() {
       echo "\$(IFS=,; echo "\${E[*]}")|\$(IFS=,; echo "\${D[*]}")" 
     }
 
-    times=(1 5)
-    threads=(1 2 8 10 20 32 45 64)
-    batch_sizes=(1 1000)
+    times=($TIMES)
+    threads=($THREADS)
+    batch_sizes=($BATCH_SIZES)
     patterns=(a b c d)
 
     for pat in "\${patterns[@]}"; do
@@ -117,8 +120,8 @@ run_neb() {
 EOSSH
 }
 
-if [ $# -ne 2 ]; then
-  echo "USAGE: run_nebula_conc.sh <project.zip> <benchmark executable>"
+if [ $# -ne 5 ]; then
+  echo "USAGE: run_nebula_conc.sh <project.zip> <benchmark executable> <times> <batch sizes> <threads>"
   exit 1
 fi
 

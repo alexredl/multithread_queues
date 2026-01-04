@@ -264,7 +264,7 @@ for batch in batches:
     if show:
       plt.show()
     else:
-      plt.savefig(f'{dir_plots}//speedup_t{duration}_b{batch}.pdf')
+      plt.savefig(f'{dir_plots}//speedup_all_t{duration}_b{batch}.pdf')
       plt.close(fig)
 
     # plot dequeue fails

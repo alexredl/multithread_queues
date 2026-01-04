@@ -207,8 +207,6 @@ int test_conc(const int N) {
     return 1;
   }
 
-  while (deq(&v, q) != QUEUE_EMPTY) {}
-
   printf(" Parallel dequeue after sequential enqueue test passed\n");
 
   #pragma omp parallel for
@@ -241,8 +239,6 @@ int test_conc(const int N) {
     destroy(q);
     return 1;
   }
-
-  while (deq(&v, q) != QUEUE_EMPTY) {}
 
   printf(" Parallel dequeue after parallel enqueue test passed\n");
 
@@ -334,8 +330,6 @@ int test_conc(const int N) {
     return 1;
   }
 
-  while (deq(&v, q) != QUEUE_EMPTY) {}
-
   printf(" Enqueue-Dequeue test passed\n");
 
   ret = deq(&v, q);
@@ -353,7 +347,7 @@ int test_conc(const int N) {
 
 // test sequential and concurrent implementaion and print some test/usage
 int main(int argc, char** argv) {
-  // decrease malloc arena count; otherwise nebula cannot do shit for > 50 threads
+  // decrease malloc arena count; otherwise nebula cannot do s.... as RAM goes brrrrrr for > 50 threads
   mallopt(M_ARENA_MAX, 1);
 
   // get number of threads

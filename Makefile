@@ -21,7 +21,7 @@ VARIANTS_SEQ  = seq
 VARIANTS_CONC = conc conc2 cas
 VARIANTS = $(VARIANTS_SEQ) $(VARIANTS_CONC)
 
-.PHONY: all dirs b_test test test_% b_bench bench_% plots clean
+.PHONY: all dirs b_test test test_% b_bench bench_% bench plot clean
 
 all: dirs b_test b_bench
 
@@ -60,15 +60,19 @@ small-bench:
 
 bench_%: zip
 	@if echo "$(VARIANTS_SEQ)" | grep -qw "$*"; then \
-		./run_nebula_seq.sh $(FILE_ZIP) bench_$*; \
+		./run_nebula_seq.sh $(FILE_ZIP) bench_$* "1 5" "1 1000"; \
 	elif echo "$(VARIANTS_CONC)" | grep -qw "$*"; then \
-		./run_nebula_conc.sh $(FILE_ZIP) bench_$*; \
+		./run_nebula_conc.sh $(FILE_ZIP) bench_$* "1 5" "1 1000" "1 2 8 10 20 32 45 64"; \
 	else \
 		echo "Unknown variant: $*"; \
 	fi
 
-bench_seq_%:
-	./run_nebula_seq.sh $(FILE_ZIP) ./bench_$*
+bench: zip
+	@rm -rf $(DIR_DATA)
+	@mkdir -p $(DIR_DATA)
+	@for v in $(VARIANTS); do \
+		make bench_$$v; \
+	done
 
 # plot benchmarks
 plot: plot.py | $(DIR_PLOTS)
@@ -82,8 +86,10 @@ zip:
 
 #clean
 clean:
-	@echo "Cleaning build directory: ${DIR_BUILD}"
+	@echo "Cleaning build, data and plots directory"
 	@rm -rf $(DIR_BUILD)
+	@rm -rf $(DIR_DATA)
+	@rm -rf $(DIR_PLOTS)
 	@echo "Cleaning zip file: ${FILE_ZIP}"
 	@rm -rf $(FILE_ZIP)
 

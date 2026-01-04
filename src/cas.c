@@ -137,10 +137,10 @@ int deq(value_t *v, queue *q) {
   while(1) {
     snode_ptr shead = atomic_load(&q->head);
     node *head = get_node(shead);
-    snode_ptr snext = atomic_load(&head->snext);
-    node *next = get_node(snext);
     snode_ptr stail = atomic_load(&q->tail);
     node *tail = get_node(stail);
+    snode_ptr snext = atomic_load(&head->snext);
+    node *next = get_node(snext);
     if (shead != atomic_load(&q->head) || stail != atomic_load(&q->tail)) { continue; }
     if (head == tail) {
       if (next == NULL) { return QUEUE_EMPTY; }
@@ -149,7 +149,7 @@ int deq(value_t *v, queue *q) {
       *v = next->value;
       if (CAS(&q->head, &shead, stamp(next, get_stamp(shead) + 1))) {
         atomic_store(&head->snext, atomic_load(&q->freelists[id]));
-        atomic_store(&q->freelists[id], stamp(head, 0));
+        atomic_store(&q->freelists[id], shead);
         return QUEUE_OK;
       }
     }
@@ -175,7 +175,7 @@ int deq_stats(value_t *v, queue *q, stats *s) {
       if (CAS(&q->head, &shead, stamp(next, get_stamp(shead) + 1))) {
         s->cas_succ++;
         atomic_store(&head->snext, atomic_load(&q->freelists[id]));
-        atomic_store(&q->freelists[id], stamp(head, 0));
+        atomic_store(&q->freelists[id], shead);
         s->freelist_len++;
         if (s->freelist_len > s->freelist_max) {
           s->freelist_max = s->freelist_len;

@@ -4,6 +4,8 @@
 
 ZIP=$1
 PROG=$2
+TIMES=$3
+BATCH_SIZES=$4
 LOG=nebula.log
 DIR_LOC=data
 DIR_NEB=hubble
@@ -30,8 +32,8 @@ run_neb() {
     make
     cd build
 
-    times=(1 5)
-    batch_sizes=(1 1000)
+    times=($TIMES)
+    batch_sizes=($BATCH_SIZES)
 
     for b in "\${batch_sizes[@]}"; do
       for t in "\${times[@]}"; do
@@ -63,8 +65,8 @@ run_neb() {
 EOSSH
 }
 
-if [ $# -ne 2 ]; then
-  echo "USAGE: run_nebula_seq.sh <project.zip> <benchmark executable>"
+if [ $# -ne 4 ]; then
+  echo "USAGE: run_nebula_seq.sh <project.zip> <benchmark executable> <times> <batch sizes>"
   exit 1
 fi
 
