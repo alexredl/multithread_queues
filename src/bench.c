@@ -150,7 +150,7 @@ int check_correctness(int threads, int duration) {
     int *deques_local = (int*)calloc(threads, sizeof(int));
     value_t v;
     while (deq(&v, q) != QUEUE_EMPTY) {
-      deques_local[v % threads]++;
+      deques_local[(int)v % threads]++;
     }
 
     #pragma omp critical

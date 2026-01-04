@@ -35,7 +35,7 @@ $(DIR_ALL):
 # build tests
 b_test: $(addprefix $(DIR_BUILD)/test_, $(VARIANTS))
 
-$(DIR_BUILD)/test_%: $(DIR_SRC)/test.c $(DIR_SRC)/%.c | $(DIR_BUILD)
+$(DIR_BUILD)/test_%: $(DIR_SRC)/test.c $(DIR_SRC)/%.c $(DIR_SRC)/queue.h | $(DIR_BUILD)
 	$(CC) $(CFLAGS_TEST) -fopenmp -o $@ $^
 
 # tests
@@ -52,7 +52,7 @@ test: b_test
 # build benchmarks
 b_bench: $(addprefix $(DIR_BUILD)/bench_, $(VARIANTS))
 
-$(DIR_BUILD)/bench_%: $(DIR_SRC)/bench.c $(DIR_SRC)/%.c | $(DIR_BUILD)
+$(DIR_BUILD)/bench_%: $(DIR_SRC)/bench.c $(DIR_SRC)/%.c $(DIR_SRC)/queue.h | $(DIR_BUILD)
 	$(CC) $(CFLAGS_BENCH) -fopenmp -o $@ $^
 
 # benchmarks

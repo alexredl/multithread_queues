@@ -43,7 +43,7 @@ int test_seq(const int N) {
       return 1;
     }
     if (v != (value_t)i) {
-      printf(" ERROR: enq(%d) and deq(%d) do not match\n", i, v);
+      printf(" ERROR: enq(%d) and deq(%d) do not match\n", i, (int)v);
       return 1;
     }
   }
@@ -87,7 +87,7 @@ int test_seq(const int N) {
       return 1;
     }
     if (v != (value_t)i) {
-      printf(" ERROR: enq(%d) and deq(%d) do not match\n", i, v);
+      printf(" ERROR: enq(%d) and deq(%d) do not match\n", i, (int)v);
       destroy(q);
       return 1;
     }
@@ -260,9 +260,9 @@ int test_conc(const int N) {
   int *vs = calloc(N+1, sizeof(int));
   while((ret = deq(&v, q)) == QUEUE_OK) {
     if (v < 0 || v > N) {
-      printf(" ERROR: deq(%d) out of range\n", v);
+      printf(" ERROR: deq(%d) out of range\n", (int)v);
     } else {
-      vs[v]++;
+      vs[(int)v]++;
     }
   }
 
@@ -382,7 +382,7 @@ int main(int argc, char** argv) {
 
   printf(" Dequeuing: ");
   while(deq(&v, q) == 0) {
-    printf("%d ", v);
+    printf("%d ", (int)v);
   }
   printf("\n");
 
