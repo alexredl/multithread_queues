@@ -71,8 +71,9 @@ bench_seq_%:
 	./run_nebula_seq.sh $(FILE_ZIP) ./bench_$*
 
 # plot benchmarks
-plots: eval.py
-	python3 eval.py
+plot: plot.py | $(DIR_PLOTS)
+	@rm -rf $(DIR_PLOTS)/*
+	python3 plot.py
 
 # zip
 zip:
