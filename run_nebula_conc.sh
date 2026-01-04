@@ -4,9 +4,11 @@
 
 ZIP=$1
 PROG=$2
-TIMES=$3
-BATCH_SIZES=$4
-THREADS=$5
+REPETITIONS=$3
+TIMES=$4
+BATCH_SIZES=$5
+THREADS=$6
+PATTERNS=$7
 LOG=nebula.log
 DIR_LOC=data
 DIR_NEB=hubble
@@ -84,7 +86,7 @@ run_neb() {
     times=($TIMES)
     threads=($THREADS)
     batch_sizes=($BATCH_SIZES)
-    patterns=(a b c d)
+    patterns=($PATTERNS)
 
     for pat in "\${patterns[@]}"; do
       for n in "\${threads[@]}"; do
@@ -104,7 +106,7 @@ run_neb() {
 
             echo "'Running \$logfile'"
 
-            srun -t 2 -p q_student $PROG -n "\$n" -t "\$t" -r 10 -E "\$E" -D "\$D" | tee "\$logfile"
+            srun -t 2 -p q_student $PROG -n "\$n" -t "\$t" -r $REPETITIONS -E "\$E" -D "\$D" | tee "\$logfile"
 
             while [ "\$(squeue -u \$(whoami) | wc -l)" -ne 1 ]; do
               squeue
@@ -120,8 +122,8 @@ run_neb() {
 EOSSH
 }
 
-if [ $# -ne 5 ]; then
-  echo "USAGE: run_nebula_conc.sh <project.zip> <benchmark executable> <times> <batch sizes> <threads>"
+if [ $# -ne 7 ]; then
+  echo "USAGE: run_nebula_conc.sh <project.zip> <benchmark executable> <repetitions> <times> <batch sizes> <threads> <patterns>"
   exit 1
 fi
 

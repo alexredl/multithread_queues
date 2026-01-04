@@ -15,6 +15,7 @@ DIR_ALL = $(DIR_BUILD) $(DIR_DATA) $(DIR_PLOTS)
 
 # files
 FILE_ZIP = project.zip
+FILE_LOG = nebula.log
 
 # diffrent queue implementations
 VARIANTS_SEQ  = seq
@@ -55,14 +56,19 @@ $(DIR_BUILD)/bench_%: $(DIR_SRC)/bench.c $(DIR_SRC)/%.c | $(DIR_BUILD)
 	$(CC) $(CFLAGS_BENCH) -fopenmp -o $@ $^
 
 # benchmarks
-small-bench:
-	@echo "You are small"
+small-bench: zip
+	@rm -rf $(DIR_DATA)
+	@mkdir -p $(DIR_DATA)
+	./run_nebula_seq.sh $(FILE_ZIP) bench_seq 1 1 1000
+	./run_nebula_conc.sh $(FILE_ZIP) bench_conc 1 1 1000 "1 32 64" a
+	./run_nebula_conc.sh $(FILE_ZIP) bench_conc2 1 1 1000 "1 32 64" a
+	./run_nebula_conc.sh $(FILE_ZIP) bench_cas 1 1 1000 "1 32 64" a
 
 bench_%: zip
 	@if echo "$(VARIANTS_SEQ)" | grep -qw "$*"; then \
-		./run_nebula_seq.sh $(FILE_ZIP) bench_$* "1 5" "1 1000"; \
+		./run_nebula_seq.sh $(FILE_ZIP) bench_$* 10 "1 5" "1 1000"; \
 	elif echo "$(VARIANTS_CONC)" | grep -qw "$*"; then \
-		./run_nebula_conc.sh $(FILE_ZIP) bench_$* "1 5" "1 1000" "1 2 8 10 20 32 45 64"; \
+		./run_nebula_conc.sh $(FILE_ZIP) bench_$* 10 "1 5" "1 1000" "1 2 8 10 20 32 45 64" "a b c d"; \
 	else \
 		echo "Unknown variant: $*"; \
 	fi
@@ -79,6 +85,9 @@ plot: plot.py | $(DIR_PLOTS)
 	@rm -rf $(DIR_PLOTS)/*
 	python3 plot.py
 
+small-plot:
+	make plot
+
 # zip
 zip:
 	@rm -rf $(FILE_ZIP)
@@ -90,6 +99,7 @@ clean:
 	@rm -rf $(DIR_BUILD)
 	@rm -rf $(DIR_DATA)
 	@rm -rf $(DIR_PLOTS)
-	@echo "Cleaning zip file: ${FILE_ZIP}"
+	@echo "Cleaning zip file and nebula log file"
 	@rm -rf $(FILE_ZIP)
+	@rm -rf $(FILE_LOG)
 

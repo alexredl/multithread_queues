@@ -4,8 +4,9 @@
 
 ZIP=$1
 PROG=$2
-TIMES=$3
-BATCH_SIZES=$4
+REPETITIONS=$3
+TIMES=$4
+BATCH_SIZES=$5
 LOG=nebula.log
 DIR_LOC=data
 DIR_NEB=hubble
@@ -38,20 +39,11 @@ run_neb() {
     for b in "\${batch_sizes[@]}"; do
       for t in "\${times[@]}"; do
 
-        if [ "\$pat" = "a" ]; then
-          E=\$(a "\$n" "\$b")
-          D=\$(a "\$n" "\$b")
-        else
-          tmp=\$(b "\$n" "\$b")
-          E=\${tmp%%|*}
-          D=\${tmp##*|}
-        fi
-
         logfile="../data/\$(basename $PROG)_t\${t}_b\${b}.log"
 
         echo "'Running \$logfile'"
 
-        srun -t 2 -p q_student $PROG -n 1 -t "\$t" -r 10 -e "\$b" -d "\$b" | tee "\$logfile"
+        srun -t 2 -p q_student $PROG -n 1 -t "\$t" -r $REPETITIONS -e "\$b" -d "\$b" | tee "\$logfile"
 
         while [ "\$(squeue -u \$(whoami) | wc -l)" -ne 1 ]; do
           squeue
@@ -65,8 +57,8 @@ run_neb() {
 EOSSH
 }
 
-if [ $# -ne 4 ]; then
-  echo "USAGE: run_nebula_seq.sh <project.zip> <benchmark executable> <times> <batch sizes>"
+if [ $# -ne 5 ]; then
+  echo "USAGE: run_nebula_seq.sh <project.zip> <benchmark executable> <repetitions> <times> <batch sizes>"
   exit 1
 fi
 

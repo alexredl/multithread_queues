@@ -186,7 +186,9 @@ for batch in batches:
       stats_conc[program] = stats_program
 
     # plot throughput (all successfull ops)
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       axs[i].hlines(stats_seq.throughput, 1, max(threads), colors=colors[0], label=program_seq)
@@ -206,8 +208,11 @@ for batch in batches:
       plt.savefig(f'{dir_plots}//throughput_t{duration}_b{batch}.pdf')
       plt.close(fig)
 
+    """
     # plot throughput (all ops)
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       axs[i].hlines(stats_seq.throughput_all, 1, max(threads), colors=colors[0], label=program_seq)
@@ -226,9 +231,12 @@ for batch in batches:
     else:
       plt.savefig(f'{dir_plots}//throughput_all_t{duration}_b{batch}.pdf')
       plt.close(fig)
+    """
 
     # plot speedup (all successfull ops)
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       for j, program in enumerate(programs, 1):
@@ -247,8 +255,11 @@ for batch in batches:
       plt.savefig(f'{dir_plots}//speedup_t{duration}_b{batch}.pdf')
       plt.close(fig)
 
+    """
     # plot speedup (all ops)
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       for j, program in enumerate(programs, 1):
@@ -266,9 +277,12 @@ for batch in batches:
     else:
       plt.savefig(f'{dir_plots}//speedup_all_t{duration}_b{batch}.pdf')
       plt.close(fig)
+    """
 
     # plot dequeue fails
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       for j, program in enumerate(programs, 1):
@@ -287,7 +301,9 @@ for batch in batches:
       plt.close(fig)
 
     # plot freelist insterts
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       for j, program in enumerate(programs, 1):
@@ -307,7 +323,9 @@ for batch in batches:
       plt.close(fig)
 
     # plot freelist max
-    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(20), cm_inch(6)))
+    fig, axs = plt.subplots(1, len(patterns), figsize=(cm_inch(5 * len(patterns)), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for i, pattern in enumerate(patterns):
       axs[i].set_title(f'Pattern: {pattern}')
       for j, program in enumerate(programs, 1):
@@ -328,6 +346,8 @@ for batch in batches:
 
     # plot cas success rate
     fig, ax = plt.subplots(1, 1, figsize=(cm_inch(5), cm_inch(6)))
+    if len(patterns) == 1:
+      axs = [axs]
     for j, pattern in enumerate(patterns, 5):
       stats = stats_conc[program_cas][pattern]
       ax.plot([s.threads for s in stats], [s.cas_succ_rate for s in stats], color=colors[j], marker='x', label=pattern)
