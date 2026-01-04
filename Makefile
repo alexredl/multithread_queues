@@ -91,7 +91,7 @@ small-plot:
 # zip
 zip:
 	@rm -rf $(FILE_ZIP)
-	@zip $(FILE_ZIP) Makefile README $(DIR_SRC)/* $(DIR_PLOTS)/* $(DIR_REPORT)/* *.sh *.py
+	@zip $(FILE_ZIP) Makefile README.md $(DIR_SRC)/* $(DIR_PLOTS)/* $(DIR_REPORT)/* *.sh *.py
 
 #clean
 clean:
