@@ -1,0 +1,3336 @@
+INFO: Threads:     32
+INFO: Duration:    5
+INFO: Repetitions: 10
+INFO: Enque batches: [1000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+INFO: Deque batches: [0 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ]
+
+Thread: 0 STATS:
+ duration: 5.009653 sec
+ enq_succ: 42000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.007906 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 13760
+ deq_fail: 204240
+ freelist_insert: 13760
+ freelist_max: 13760
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.010141 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 57
+ deq_fail: 332943
+ freelist_insert: 57
+ freelist_max: 57
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.007370 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 21999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.007309 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 19
+ deq_fail: 25981
+ freelist_insert: 19
+ freelist_max: 19
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.002788 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 11
+ deq_fail: 155989
+ freelist_insert: 11
+ freelist_max: 11
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.006165 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 76992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.009157 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1738
+ deq_fail: 186262
+ freelist_insert: 1738
+ freelist_max: 1738
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.010227 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 27
+ deq_fail: 1973
+ freelist_insert: 27
+ freelist_max: 27
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.010126 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 12
+ deq_fail: 20988
+ freelist_insert: 12
+ freelist_max: 12
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.002493 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 31
+ deq_fail: 334969
+ freelist_insert: 31
+ freelist_max: 31
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.005881 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 12997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.001999 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 98
+ deq_fail: 834902
+ freelist_insert: 98
+ freelist_max: 98
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.008919 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3525
+ deq_fail: 195475
+ freelist_insert: 3525
+ freelist_max: 3525
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.002747 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 132000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.008463 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 55997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.010303 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 58
+ deq_fail: 28942
+ freelist_insert: 58
+ freelist_max: 58
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.001849 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 61
+ deq_fail: 924939
+ freelist_insert: 61
+ freelist_max: 61
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.002931 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 72991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.005841 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 14995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.007367 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5360
+ deq_fail: 227640
+ freelist_insert: 5360
+ freelist_max: 5360
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.007653 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 18999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.009656 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 15275
+ deq_fail: 7725
+ freelist_insert: 15275
+ freelist_max: 15275
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.001083 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 42
+ deq_fail: 1049958
+ freelist_insert: 42
+ freelist_max: 42
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.003228 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 187994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.005783 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 16990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.004422 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1717
+ deq_fail: 28283
+ freelist_insert: 1717
+ freelist_max: 1717
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.008593 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 19
+ deq_fail: 5981
+ freelist_insert: 19
+ freelist_max: 19
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.010379 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 18
+ deq_fail: 2982
+ freelist_insert: 18
+ freelist_max: 18
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.006009 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 84997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.006191 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 99
+ deq_fail: 553901
+ freelist_insert: 99
+ freelist_max: 99
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.007351 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 24
+ deq_fail: 199976
+ freelist_insert: 24
+ freelist_max: 24
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.006562 sec
+ enq_succ: 42000
+ enq_fail: 0
+ deq_succ: 42000
+ deq_fail: 6021000
+ freelist_insert: 42000
+ freelist_max: 15275
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.000259 sec
+ enq_succ: 181000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.006355 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 205990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.006638 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 103998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.003457 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 160999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.003757 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 46
+ deq_fail: 248954
+ freelist_insert: 46
+ freelist_max: 46
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.005191 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 256990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.004550 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 153998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.005417 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 185995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.006917 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 11
+ deq_fail: 51989
+ freelist_insert: 11
+ freelist_max: 11
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.004445 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1750
+ deq_fail: 794250
+ freelist_insert: 1750
+ freelist_max: 1750
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.004687 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1767
+ deq_fail: 796233
+ freelist_insert: 1767
+ freelist_max: 1767
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.004958 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 91
+ deq_fail: 402909
+ freelist_insert: 91
+ freelist_max: 91
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.004012 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 59
+ deq_fail: 305941
+ freelist_insert: 59
+ freelist_max: 59
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.005976 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 190990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.006696 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 12
+ deq_fail: 88988
+ freelist_insert: 12
+ freelist_max: 12
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.007044 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 151994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.002623 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 59991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.002031 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1294
+ deq_fail: 893706
+ freelist_insert: 1294
+ freelist_max: 1294
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.002808 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 52
+ deq_fail: 206948
+ freelist_insert: 52
+ freelist_max: 52
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.006381 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 151992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.005935 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 207996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.006657 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 62990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.006182 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 175341
+ deq_fail: 106659
+ freelist_insert: 175341
+ freelist_max: 175341
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.003745 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 278
+ deq_fail: 841722
+ freelist_insert: 278
+ freelist_max: 278
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.001481 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 167
+ deq_fail: 428833
+ freelist_insert: 167
+ freelist_max: 167
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.006367 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 14
+ deq_fail: 220986
+ freelist_insert: 14
+ freelist_max: 14
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.006831 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 81994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.006831 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 14
+ deq_fail: 85986
+ freelist_insert: 14
+ freelist_max: 14
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.006964 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 47999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.000213 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 142998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.006904 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 13
+ deq_fail: 168987
+ freelist_insert: 13
+ freelist_max: 13
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.003286 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 270995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.004863 sec
+ enq_succ: 181000
+ enq_fail: 0
+ deq_succ: 181000
+ deq_fail: 8081000
+ freelist_insert: 181000
+ freelist_max: 175341
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.005421 sec
+ enq_succ: 253000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.003544 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 210991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.006711 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 95996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.004581 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 31
+ deq_fail: 153969
+ freelist_insert: 31
+ freelist_max: 31
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.004686 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 112
+ deq_fail: 240888
+ freelist_insert: 112
+ freelist_max: 112
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.002556 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 300993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.005548 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 59
+ deq_fail: 176941
+ freelist_insert: 59
+ freelist_max: 59
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.003040 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 224997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.006300 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 56993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.000662 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1101
+ deq_fail: 786899
+ freelist_insert: 1101
+ freelist_max: 1101
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.000586 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1046
+ deq_fail: 785954
+ freelist_insert: 1046
+ freelist_max: 1046
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.004071 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 63
+ deq_fail: 467937
+ freelist_insert: 63
+ freelist_max: 63
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.006032 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 105
+ deq_fail: 271895
+ freelist_insert: 105
+ freelist_max: 105
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.002146 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 228997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.006713 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 98992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.005123 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 72
+ deq_fail: 177928
+ freelist_insert: 72
+ freelist_max: 72
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.006552 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 61996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.003068 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1503
+ deq_fail: 882497
+ freelist_insert: 1503
+ freelist_max: 1503
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.005842 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 96
+ deq_fail: 220904
+ freelist_insert: 96
+ freelist_max: 96
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.003138 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 151996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.000381 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 205999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.006747 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 64993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.004151 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 248189
+ deq_fail: 117811
+ freelist_insert: 248189
+ freelist_max: 248189
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.000976 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 344
+ deq_fail: 818656
+ freelist_insert: 344
+ freelist_max: 344
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.000844 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 82
+ deq_fail: 435918
+ freelist_insert: 82
+ freelist_max: 82
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.004028 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 13
+ deq_fail: 222987
+ freelist_insert: 13
+ freelist_max: 13
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.006418 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 26
+ deq_fail: 94974
+ freelist_insert: 26
+ freelist_max: 26
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.006319 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 28
+ deq_fail: 99972
+ freelist_insert: 28
+ freelist_max: 28
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.006231 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 51997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.005658 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 55
+ deq_fail: 154945
+ freelist_insert: 55
+ freelist_max: 55
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.001495 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 193992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.003593 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 274993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.004161 sec
+ enq_succ: 253000
+ enq_fail: 0
+ deq_succ: 253000
+ deq_fail: 8335000
+ freelist_insert: 253000
+ freelist_max: 248189
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.003880 sec
+ enq_succ: 277000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.006212 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 197996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.006868 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 78999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.004399 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 138000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.001375 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 216990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.001680 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 273997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.006213 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 158996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.006403 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 177999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.007129 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 52991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.007154 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 963
+ deq_fail: 639037
+ freelist_insert: 963
+ freelist_max: 963
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.001373 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1137
+ deq_fail: 749863
+ freelist_insert: 1137
+ freelist_max: 1137
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.003850 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 40
+ deq_fail: 430960
+ freelist_insert: 40
+ freelist_max: 40
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.006237 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 24
+ deq_fail: 244976
+ freelist_insert: 24
+ freelist_max: 24
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.006397 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 179997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.007032 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 82993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.006107 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 155998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.006987 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 57996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.000694 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 807
+ deq_fail: 1168193
+ freelist_insert: 807
+ freelist_max: 807
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.002554 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 209992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.005091 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 133998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.005996 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 196998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.003661 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 298
+ deq_fail: 170702
+ freelist_insert: 298
+ freelist_max: 298
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.006486 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 273336
+ deq_fail: 89664
+ freelist_insert: 273336
+ freelist_max: 273336
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.003907 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 271
+ deq_fail: 1103729
+ freelist_insert: 271
+ freelist_max: 271
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.004408 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 38
+ deq_fail: 405962
+ freelist_insert: 38
+ freelist_max: 38
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.004680 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 199995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.006793 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 88995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.006782 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 92990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.006934 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 49000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.005335 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 148999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.005796 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 180997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.004293 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 253998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.005085 sec
+ enq_succ: 277000
+ enq_fail: 0
+ deq_succ: 277000
+ deq_fail: 8332000
+ freelist_insert: 277000
+ freelist_max: 273336
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.006302 sec
+ enq_succ: 290000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.004873 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 188995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.007703 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 86998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.003408 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 143996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.000160 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 11
+ deq_fail: 226989
+ freelist_insert: 11
+ freelist_max: 11
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.005363 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 261996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.006275 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 14
+ deq_fail: 161986
+ freelist_insert: 14
+ freelist_max: 14
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.000746 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 188999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.007674 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 52996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.007606 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 56990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.000132 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1162
+ deq_fail: 759838
+ freelist_insert: 1162
+ freelist_max: 1162
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.006225 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 37
+ deq_fail: 411963
+ freelist_insert: 37
+ freelist_max: 37
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.006434 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 39
+ deq_fail: 252961
+ freelist_insert: 39
+ freelist_max: 39
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.002584 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 190997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.007692 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 88993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.006669 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 161992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.007407 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 54997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.002831 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 692
+ deq_fail: 1150308
+ freelist_insert: 692
+ freelist_max: 692
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.007426 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 29
+ deq_fail: 193971
+ freelist_insert: 29
+ freelist_max: 29
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.006334 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 26
+ deq_fail: 136974
+ freelist_insert: 26
+ freelist_max: 26
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.003771 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 185998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.002724 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1225
+ deq_fail: 764775
+ freelist_insert: 1225
+ freelist_max: 1225
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.005716 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 286410
+ deq_fail: 91590
+ freelist_insert: 286410
+ freelist_max: 286410
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.002860 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 242
+ deq_fail: 1083758
+ freelist_insert: 242
+ freelist_max: 242
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.003637 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 25
+ deq_fail: 419975
+ freelist_insert: 25
+ freelist_max: 25
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.005669 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 204998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.007494 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 88998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.007384 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 93998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.007700 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 49997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.007186 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 19
+ deq_fail: 136981
+ freelist_insert: 19
+ freelist_max: 19
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.004769 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 176994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.002200 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 261999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.005155 sec
+ enq_succ: 290000
+ enq_fail: 0
+ deq_succ: 290000
+ deq_fail: 8333000
+ freelist_insert: 290000
+ freelist_max: 286410
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.003711 sec
+ enq_succ: 295000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.003692 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 199998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.006823 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 103997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.006019 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 147998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.006035 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 233993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.005061 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 262995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.005595 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 166999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.003146 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 206000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.006893 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 53994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.006974 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 56996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.003796 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1160
+ deq_fail: 750840
+ freelist_insert: 1160
+ freelist_max: 1160
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.004705 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 15
+ deq_fail: 411985
+ freelist_insert: 15
+ freelist_max: 15
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.005722 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 257991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.001094 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 208994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.004750 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 114994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.002228 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 180999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.007005 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 55000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.003776 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 766
+ deq_fail: 1067234
+ freelist_insert: 766
+ freelist_max: 766
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.001657 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 216993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.004344 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 137999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.000083 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 196999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.003048 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1153
+ deq_fail: 755847
+ freelist_insert: 1153
+ freelist_max: 1153
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.003888 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 291552
+ deq_fail: 89448
+ freelist_insert: 291552
+ freelist_max: 291552
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.002160 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 246
+ deq_fail: 999754
+ freelist_insert: 246
+ freelist_max: 246
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.005978 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 20
+ deq_fail: 430980
+ freelist_insert: 20
+ freelist_max: 20
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.003998 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 205996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.006717 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 103000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.006601 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 108995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.006885 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 48999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.007022 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 143995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.003361 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 195992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.006251 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 269996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.004657 sec
+ enq_succ: 295000
+ enq_fail: 0
+ deq_succ: 295000
+ deq_fail: 8386000
+ freelist_insert: 295000
+ freelist_max: 291552
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.004891 sec
+ enq_succ: 305000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.001582 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 211999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.008159 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 112998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.006365 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 154992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.006424 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 18
+ deq_fail: 243982
+ freelist_insert: 18
+ freelist_max: 18
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.001616 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 275997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.007417 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 181996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.007064 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 219000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.003631 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 59996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.008034 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 63997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.001393 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 846
+ deq_fail: 758154
+ freelist_insert: 846
+ freelist_max: 846
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.004359 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 117
+ deq_fail: 430883
+ freelist_insert: 117
+ freelist_max: 117
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.007424 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 21
+ deq_fail: 283979
+ freelist_insert: 21
+ freelist_max: 21
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.006822 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 222995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.006235 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 146998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.007704 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 190998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.008009 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 61000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.004860 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1281
+ deq_fail: 907719
+ freelist_insert: 1281
+ freelist_max: 1281
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.006764 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 213992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.005955 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 44
+ deq_fail: 149956
+ freelist_insert: 44
+ freelist_max: 44
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.003518 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 208999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.004761 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 984
+ deq_fail: 764016
+ freelist_insert: 984
+ freelist_max: 984
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.002900 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 301052
+ deq_fail: 98948
+ freelist_insert: 301052
+ freelist_max: 301052
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.003254 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 466
+ deq_fail: 842534
+ freelist_insert: 466
+ freelist_max: 466
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.005484 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 33
+ deq_fail: 440967
+ freelist_insert: 33
+ freelist_max: 33
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.005797 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 55
+ deq_fail: 219945
+ freelist_insert: 55
+ freelist_max: 55
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.007983 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 115994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.008087 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 121997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.007442 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 55996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.007963 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 119992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.007572 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 210990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.005887 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 274991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.005792 sec
+ enq_succ: 305000
+ enq_fail: 0
+ deq_succ: 305000
+ deq_fail: 8367000
+ freelist_insert: 305000
+ freelist_max: 301052
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.002277 sec
+ enq_succ: 243000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.001536 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 199997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.004435 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 111999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.003664 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 26
+ deq_fail: 161974
+ freelist_insert: 26
+ freelist_max: 26
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.003822 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 34
+ deq_fail: 252966
+ freelist_insert: 34
+ freelist_max: 34
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.003347 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 119
+ deq_fail: 266881
+ freelist_insert: 119
+ freelist_max: 119
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.003924 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 162998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.003518 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 223998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.004084 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 55996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.004438 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 62996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.000920 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 758
+ deq_fail: 743242
+ freelist_insert: 758
+ freelist_max: 758
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.003490 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 132
+ deq_fail: 416868
+ freelist_insert: 132
+ freelist_max: 132
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.003629 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 13
+ deq_fail: 243987
+ freelist_insert: 13
+ freelist_max: 13
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.003793 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 228997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.000512 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 139998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.003698 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 177998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.004442 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 60996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.000227 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 670
+ deq_fail: 995330
+ freelist_insert: 670
+ freelist_max: 670
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.000666 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 198995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.002577 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 44
+ deq_fail: 148956
+ freelist_insert: 44
+ freelist_max: 44
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.003572 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 199000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.002517 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 902
+ deq_fail: 748098
+ freelist_insert: 902
+ freelist_max: 902
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.000426 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 239860
+ deq_fail: 109140
+ freelist_insert: 239860
+ freelist_max: 239860
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.002126 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 303
+ deq_fail: 925697
+ freelist_insert: 303
+ freelist_max: 303
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.001478 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 48
+ deq_fail: 474952
+ freelist_insert: 48
+ freelist_max: 48
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.000044 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 223995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.004168 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 7
+ deq_fail: 115993
+ freelist_insert: 7
+ freelist_max: 7
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.004082 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 123992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.004058 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 51998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.004218 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 115995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.002569 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 199996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.003285 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 28
+ deq_fail: 305972
+ freelist_insert: 28
+ freelist_max: 28
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.002861 sec
+ enq_succ: 243000
+ enq_fail: 0
+ deq_succ: 243000
+ deq_fail: 8450000
+ freelist_insert: 243000
+ freelist_max: 239860
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.006921 sec
+ enq_succ: 285000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.005982 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 9
+ deq_fail: 201991
+ freelist_insert: 9
+ freelist_max: 9
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.007896 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 101997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.004499 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 145998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.004690 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 12
+ deq_fail: 231988
+ freelist_insert: 12
+ freelist_max: 12
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.005789 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 274990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.006345 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 173998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.007068 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 66
+ deq_fail: 208934
+ freelist_insert: 66
+ freelist_max: 66
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.007896 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 14
+ deq_fail: 56986
+ freelist_insert: 14
+ freelist_max: 14
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.007326 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 63995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.002613 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1307
+ deq_fail: 756693
+ freelist_insert: 1307
+ freelist_max: 1307
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.002833 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 43
+ deq_fail: 431957
+ freelist_insert: 43
+ freelist_max: 43
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.006488 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 28
+ deq_fail: 266972
+ freelist_insert: 28
+ freelist_max: 28
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.006806 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 14
+ deq_fail: 211986
+ freelist_insert: 14
+ freelist_max: 14
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.005703 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 147995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.005340 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 175994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.004437 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 60996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.003289 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 869
+ deq_fail: 1008131
+ freelist_insert: 869
+ freelist_max: 869
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.002368 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 33
+ deq_fail: 215967
+ freelist_insert: 33
+ freelist_max: 33
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.007672 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 145990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.005964 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 199997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.001447 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1382
+ deq_fail: 761618
+ freelist_insert: 1382
+ freelist_max: 1382
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.006422 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 280739
+ deq_fail: 94261
+ freelist_insert: 280739
+ freelist_max: 280739
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.004494 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 257
+ deq_fail: 944743
+ freelist_insert: 257
+ freelist_max: 257
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.001567 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 93
+ deq_fail: 438907
+ freelist_insert: 93
+ freelist_max: 93
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.007614 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 23
+ deq_fail: 217977
+ freelist_insert: 23
+ freelist_max: 23
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.007401 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 14
+ deq_fail: 108986
+ freelist_insert: 14
+ freelist_max: 14
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.007110 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 21
+ deq_fail: 115979
+ freelist_insert: 21
+ freelist_max: 21
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.007905 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 52998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.007877 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 107990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.005669 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 11
+ deq_fail: 194989
+ freelist_insert: 11
+ freelist_max: 11
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.004019 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 3
+ deq_fail: 273997
+ freelist_insert: 3
+ freelist_max: 3
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.005608 sec
+ enq_succ: 285000
+ enq_fail: 0
+ deq_succ: 285000
+ deq_fail: 8396000
+ freelist_insert: 285000
+ freelist_max: 280739
+ cas_succ: 0
+ cas_fail: 0
+
+
+Thread: 0 STATS:
+ duration: 5.006937 sec
+ enq_succ: 312000
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 0
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 1 STATS:
+ duration: 5.002795 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 187998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 2 STATS:
+ duration: 5.009048 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 108994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 3 STATS:
+ duration: 5.000630 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 138998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 4 STATS:
+ duration: 5.003934 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 10
+ deq_fail: 215990
+ freelist_insert: 10
+ freelist_max: 10
+ cas_succ: 0
+ cas_fail: 0
+Thread: 5 STATS:
+ duration: 5.004936 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 2
+ deq_fail: 299998
+ freelist_insert: 2
+ freelist_max: 2
+ cas_succ: 0
+ cas_fail: 0
+Thread: 6 STATS:
+ duration: 5.006188 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 70
+ deq_fail: 152930
+ freelist_insert: 70
+ freelist_max: 70
+ cas_succ: 0
+ cas_fail: 0
+Thread: 7 STATS:
+ duration: 5.005029 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1
+ deq_fail: 192999
+ freelist_insert: 1
+ freelist_max: 1
+ cas_succ: 0
+ cas_fail: 0
+Thread: 8 STATS:
+ duration: 5.008452 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 16
+ deq_fail: 53984
+ freelist_insert: 16
+ freelist_max: 16
+ cas_succ: 0
+ cas_fail: 0
+Thread: 9 STATS:
+ duration: 5.009030 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 60994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 10 STATS:
+ duration: 5.005379 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1140
+ deq_fail: 726860
+ freelist_insert: 1140
+ freelist_max: 1140
+ cas_succ: 0
+ cas_fail: 0
+Thread: 11 STATS:
+ duration: 5.007085 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 141
+ deq_fail: 472859
+ freelist_insert: 141
+ freelist_max: 141
+ cas_succ: 0
+ cas_fail: 0
+Thread: 12 STATS:
+ duration: 5.002835 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 20
+ deq_fail: 231980
+ freelist_insert: 20
+ freelist_max: 20
+ cas_succ: 0
+ cas_fail: 0
+Thread: 13 STATS:
+ duration: 5.003840 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 197992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 14 STATS:
+ duration: 5.007223 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 94
+ deq_fail: 129906
+ freelist_insert: 94
+ freelist_max: 94
+ cas_succ: 0
+ cas_fail: 0
+Thread: 15 STATS:
+ duration: 5.008616 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 6
+ deq_fail: 162994
+ freelist_insert: 6
+ freelist_max: 6
+ cas_succ: 0
+ cas_fail: 0
+Thread: 16 STATS:
+ duration: 5.008715 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 57995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 17 STATS:
+ duration: 5.003856 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1078
+ deq_fail: 1133922
+ freelist_insert: 1078
+ freelist_max: 1078
+ cas_succ: 0
+ cas_fail: 0
+Thread: 18 STATS:
+ duration: 5.007120 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 127
+ deq_fail: 180873
+ freelist_insert: 127
+ freelist_max: 127
+ cas_succ: 0
+ cas_fail: 0
+Thread: 19 STATS:
+ duration: 5.008479 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 80
+ deq_fail: 141920
+ freelist_insert: 80
+ freelist_max: 80
+ cas_succ: 0
+ cas_fail: 0
+Thread: 20 STATS:
+ duration: 5.003984 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 0
+ deq_fail: 186000
+ freelist_insert: 0
+ freelist_max: 0
+ cas_succ: 0
+ cas_fail: 0
+Thread: 21 STATS:
+ duration: 5.004534 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 1224
+ deq_fail: 734776
+ freelist_insert: 1224
+ freelist_max: 1224
+ cas_succ: 0
+ cas_fail: 0
+Thread: 22 STATS:
+ duration: 5.004972 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 307357
+ deq_fail: 88643
+ freelist_insert: 307357
+ freelist_max: 307357
+ cas_succ: 0
+ cas_fail: 0
+Thread: 23 STATS:
+ duration: 5.000471 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 336
+ deq_fail: 1064664
+ freelist_insert: 336
+ freelist_max: 336
+ cas_succ: 0
+ cas_fail: 0
+Thread: 24 STATS:
+ duration: 5.003475 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 40
+ deq_fail: 384960
+ freelist_insert: 40
+ freelist_max: 40
+ cas_succ: 0
+ cas_fail: 0
+Thread: 25 STATS:
+ duration: 5.008431 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 93
+ deq_fail: 213907
+ freelist_insert: 93
+ freelist_max: 93
+ cas_succ: 0
+ cas_fail: 0
+Thread: 26 STATS:
+ duration: 5.007837 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 5
+ deq_fail: 108995
+ freelist_insert: 5
+ freelist_max: 5
+ cas_succ: 0
+ cas_fail: 0
+Thread: 27 STATS:
+ duration: 5.008519 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 4
+ deq_fail: 114996
+ freelist_insert: 4
+ freelist_max: 4
+ cas_succ: 0
+ cas_fail: 0
+Thread: 28 STATS:
+ duration: 5.008391 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 15
+ deq_fail: 48985
+ freelist_insert: 15
+ freelist_max: 15
+ cas_succ: 0
+ cas_fail: 0
+Thread: 29 STATS:
+ duration: 5.009053 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 8
+ deq_fail: 116992
+ freelist_insert: 8
+ freelist_max: 8
+ cas_succ: 0
+ cas_fail: 0
+Thread: 30 STATS:
+ duration: 5.008709 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 11
+ deq_fail: 180989
+ freelist_insert: 11
+ freelist_max: 11
+ cas_succ: 0
+ cas_fail: 0
+Thread: 31 STATS:
+ duration: 5.006142 sec
+ enq_succ: 0
+ enq_fail: 0
+ deq_succ: 93
+ deq_fail: 241907
+ freelist_insert: 93
+ freelist_max: 93
+ cas_succ: 0
+ cas_fail: 0
+
+Summary STATS:
+ duration: 5.006083 sec
+ enq_succ: 312000
+ enq_fail: 0
+ deq_succ: 312000
+ deq_fail: 8336000
+ freelist_insert: 312000
+ freelist_max: 307357
+ cas_succ: 0
+ cas_fail: 0
+
+
