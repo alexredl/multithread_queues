@@ -1,0 +1,562 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{svg}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\lt}{\ensuremath <}
+\newcommand{\gt}{\ensuremath >}
+
+\title{Advanced Multiprocessor Programming\\
+Project Group 2}
+\author{Alexander Redl, 01629061}
+
+\begin{document}
+\maketitle
+
+\section{Exercise 1}
+
+The sequential queue implementation can be found in \texttt{src/seq.c}, and all function and structure definitions in the \texttt{src/queue.h} header file. The header file was introduced for convenience, such that all following queue implementations operate with the same function signatures.
+
+The type of \texttt{value\_t} was chosen as \texttt{int}, but can easily be adapted \texttt{src/queue.h} in the line
+\begin{lstlisting}[language=C, firstnumber=7]
+typedef int value_t;
+\end{lstlisting}
+The implementations of \texttt{enq()} and \texttt{deq()} follow the lecture and dequeued elements are put in a thread local free list that is checked and, if possible, used in enquing.
+
+The defined types for the sequential implementation are \texttt{node}
+\begin{lstlisting}[language=C, firstnumber=6]
+typedef struct node {
+    value_t value;
+    struct node *next;
+} node;
+\end{lstlisting}
+which is a singly linked list node with a value and a pointer to the next node.
+
+And \texttt{queue}, defined as
+\begin{lstlisting}[language=C, firstnumber=12]
+typedef struct queue {
+    node *head;
+    node *tail;
+    node **freelists;
+    int max_threads;
+} queue;
+\end{lstlisting}
+which has a pointer to the sentinel node (\texttt{head}), a pointer to the last node in the list (\texttt{tail}), a pointer to a list of thread local free lists for recycling dequed nodes (\texttt{freelists}), as well as the amount of free lists (\texttt{max\_threads}), which will be equal to the maximum number of threads.
+
+A queue can be created using
+\begin{lstlisting}[language=C, numbers=none]
+queue* create();
+\end{lstlisting}
+which facilitates the usage of different queue structures later on.
+
+Initialization is done using
+\begin{lstlisting}[language=C, numbers=none]
+int init(queue *q);
+\end{lstlisting}
+which creates a sentinel node and sets the pointers of the queue \texttt{head} and \texttt{tail} to this node. It also allocates the free lists and sets \texttt{max\_threads} $=$ \texttt{omp\_get\_max\_threads()}. It is not a concurrent function.
+
+It returns a specific return code that can be checked against special return codes:
+\begin{itemize}
+    \item \texttt{QUEUE\_OK}: the operation was successful
+    \item \texttt{QUEUE\_NOMEM}: we ran out of memory (for allocations)
+    \item \texttt{QUEUE\_EMPTY}: returned by \texttt{deq()} if the queue is empty
+\end{itemize}
+There also exists an helper function
+\begin{lstlisting}[language=C, numbers=none]
+char* q_error(int code);
+\end{lstlisting}
+which converts the queue error codes into a user friendly string.
+
+Destroying the queue is done using
+\begin{lstlisting}[language=C, numbers=none]
+void destroy(queue *q);
+\end{lstlisting}
+which frees all nodes in the queue like in a linked list fashion (so starting from the head and freeing every next link iteratively), and also does the same freeing to each of the free lists. It is not a concurrent function.
+
+The enqueue operation
+\begin{lstlisting}[language=C, numbers=none]
+int enq(value_t v, queue *q);
+\end{lstlisting}
+allocates a new node or reuses one from the thread local free list, and also updates the tail pointer of the queue. It returns one of the return codes.
+
+The dequeue operation
+\begin{lstlisting}[language=C, numbers=none]
+int deq(value_t *v, queue *q);
+\end{lstlisting}
+updates the queue head and moves the old sentinel to the local free list for reuse. It sets the reference passed value \texttt{v} to the head-\gt next value, and returns one of the return codes.
+
+There also exist enqueue and dequeue operations that additionally take a statistic structure as argument, such that we can benchmark some statistics.
+\begin{lstlisting}[language=C, numbers=none]
+int enq_stats(value_t v, queue *q, stats *s);
+int deq_stats(value_t *v, queue *q, stats *s);
+\end{lstlisting}
+
+Although not required, I also implemented the operation
+\begin{lstlisting}[language=C, numbers=none]
+int len(queue *q);
+\end{lstlisting}
+which returns the current length of the queue. This function is never implemented in a thread safe way, as it is only used for testing purposes.
+
+A short test and example usage can be found in \texttt{src/test.c} in the \texttt{main()} section.
+\begin{lstlisting}[language=C, numbers=none]
+queue *q = create();
+value_t v;
+init(q);
+for (int i = 0; i < N; i++) {
+  enq((value_t)i, q);
+}
+printf("%d\n", len(q));
+for (int i = 0; i < N; i++) {
+  deq(&v, q);
+}
+printf("%d\n", len(q));
+destroy(q);
+\end{lstlisting}
+It also includes a \texttt{test\_seq()} function, checking for sequential correctness and it \textbf{is passed} by this implementation. A second short test in the \texttt{test\_conc()} function checks for concurrent correctness and \textbf{is not passed} by this implementation - as expected.
+
+This testing can be compiled and executed using
+\begin{lstlisting}[language=bash, numbers=none]
+make test_seq
+\end{lstlisting}
+Testing the other implementations is done the same way. Additionally one can run a correctness benchmark using
+\begin{lstlisting}[language=bash, numbers=none]
+make
+build/bench_seq -c -n 1
+\end{lstlisting}
+which \textbf{is passed} for one thread, but \textbf{is not passed} for more than one thread - as expected.
+
+\section{Exercise 2}
+
+The concurrent implementation from the sequential queue using a lock can be found in \texttt{src/conc.c}.
+
+The \texttt{queue} structure changed to
+\begin{lstlisting}[language=C, firstnumber=12]
+typedef struct queue {
+    node *head;
+    node *tail;
+    node **freelists;
+    int max_threads;
+    omp_lock_t lock;
+} queue;
+\end{lstlisting}
+and now includes the \texttt{OpenMP} lock, as we already use \texttt{OpenMP} in this project. We could also use a self-written lock for $N$-threads, but this was already introduced in the exercises, so it is not shown here. I use the functions \texttt{omp\_init\_lock()} to initialize the lock in the \texttt{init()} function, \texttt{omp\_set\_lock()} at the start of \texttt{enq()} and \texttt{deq()} to only allow to enter these functions if the lock is obtained, \texttt{omp\_unset\_lock()} on return of these two functions to ensure the lock is freed again, and \texttt{omp\_destroy\_lock()} in \texttt{destroy()} to destroy the lock when the queue is destroyed. The functions \texttt{init()}, \texttt{destroy()} and \texttt{len()} are not protected by the lock and are not concurrent implementations, which is fine according to task 1.
+
+Using my tests (\texttt{make test\_conc}), the sequential correctness test \textbf{is passed}, and the concurrent correctness test \textbf{is passed} by this implementation.
+
+One can run a correctness benchmark using
+\begin{lstlisting}[language=bash, numbers=none]
+make
+build/bench_conc -c
+\end{lstlisting}
+which \textbf{is passed} by this implementation.
+This correctness benchmark also works for the other implementations in an analog way.
+
+\section{Exercise 3}
+
+The benchmark code is found in \texttt{src/bench.c}. It works with all implementations of the queue and has to be linked accordingly. To facilitate this, one can run the following commands to build all benchmarks and execute them
+\begin{lstlisting}[language=bash, numbers=none]
+make b_bench
+build/bench_seq #or _conc, _conc2, _cas
+\end{lstlisting}
+
+It can be passed multiple parameters
+\begin{itemize}
+    \item \texttt{-n}: number of threads (default is \texttt{omp\_get\_max\_threads()})
+    \item \texttt{-t}: time in seconds for each experiment (default is 1)
+    \item \texttt{-r}: number of repetitions (default is 1)
+    \item \texttt{-c}: correctness check, which will ignore all flags except -n and -t
+    \item \texttt{-h}: help and usage, which basically prints this here
+    \item \texttt{-e}: enqueue batch size as fixed size (\texttt{-e 10}), or as randomly chosen from a range (\texttt{-e 5,10})
+    \item \texttt{-d}: dequeue batch size as fixed size (\texttt{-d 10}), or as randomly chosen from a range (\texttt{-d 5,10})
+    \item \texttt{-E}: enqueue batch size per thread (e.g. -E 10,0), which length must match to the value of -n
+    \item \texttt{-D}: dequeue batch size per thread (e.g. -D 0,10), which length must match to the value of -n
+\end{itemize}
+
+It will store different statistics (duration, enqueue successes, enqueue errors, dequeue successes, dequeue errors, free list inserts, maximum free list size, CAS successes, CAS errors) per thread and print them along with the overall (averaged or summed, depending on the variable) statistics.
+
+Especially the correctness test  (\texttt{-c}) is useful when checking the queue implementations for correctness. As given in the assignment: For $\frac{\texttt{(-t)}}{2}$ seconds every thread enqueues thread-unique values into the queue. It is logged how many numbers each thread enqueues. On dequeuing, every thread can therefore identify which thread had enqued the dequed number and a counter is increased. If the enque number and deque counter number per thread match, the implementation is (practically) correct. 
+
+\section{Exercise 4}
+
+The concurrent implementation from the sequential queue using two locks (one for the \texttt{enq()} and one for the \texttt{deq()} operation) can be found in \texttt{src/conc2.c}.
+
+The \texttt{queue} structure changed to
+\begin{lstlisting}[language=C, firstnumber=12]
+typedef struct queue {
+    node *head;
+    node *tail;
+    node **freelists;
+    int max_threads;
+    omp_lock_t lock_enq;
+    omp_lock_t lock_deq;
+} queue;
+\end{lstlisting}
+and now includes two of the \texttt{OpenMP} locks. According to their name, one is used at the entry and return of the \texttt{enq()} operation, and one on the \texttt{deq()} operation.
+
+Using my tests (\texttt{make test\_conc2}), the sequential correctness test \textbf{is passed}, and the concurrent correctness test \textbf{is passed} by this implementation. The correctness benchmark (\texttt{build/bench\_conc2 -c}) \textbf{is passed} as well.
+
+The memory management in terms of the free list continues to work in the same procedure: as each thread has its own local free list, an access to this free list can only occur by the corresponding thread. As per thread the function calls (here \texttt{enq()} and \texttt{deq()}) are sequential, there are no overlapping memory accesses and no unexpected behavior. Due to the locking of \texttt{deq()} for all threads, it is not possible that a thread wants to deque a node that has already be put in a freelist or even again been enqueud in the queue by another thread.
+
+The ABA problem is prevented by mutual exclusion, as if a thread falls asleep on the dequeuing, its gathered lock will prevent any other thread from performing the dequeue operation, so the head node will stay the same. The same holds true for any enqueuing and the tail node. Here, also the lock prevents any other thread from enqueuing, meaning the modification of nodes after the tail.
+
+The implementation is linearizable, because each operation can be assigned a specific timepoint when it affects the state of the queue. The \texttt{enq()} operation is linearized when 
+\begin{lstlisting}[language=C, firstnumber=63]
+q->tail = n;
+\end{lstlisting}
+is updated, and the \texttt{deq()} operation is linearized when
+\begin{lstlisting}[language=C, firstnumber=106]
+q->head = new;
+\end{lstlisting}
+is updated.
+
+\section{Exercise 5}
+
+The concurrent implementation using compare-and-swap (CAS) operations can be found in \texttt{src/cas.c}. It took heavy inspiration from the Michael-Scott implementation mentioned in the lecture notes [Maged M. Michael, Michael L. Scott: Simple, Fast, and Practical Non Blocking and Blocking Concurrent Queue Algorithms. PODC 1996: 267 275].
+
+Instead of pointers to next elements in the linked list of \texttt{node}s, it uses stamped pointers (\texttt{snode\_ptr}), defined as
+\begin{lstlisting}[language=C, firstnumber=10]
+typedef uint64_t snode_ptr;
+\end{lstlisting}
+As in the \texttt{x86} architecture we have 64-bit wide addresses, where currently only the lower 48 bits are used, the upper 16 bits are used here as a stamp (\texttt{stamp\_t}).
+\begin{lstlisting}[language=C, firstnumber=13]
+typedef uint16_t stamp_t;
+\end{lstlisting}
+
+For convenience I defined functions to convert between \texttt{node} pointers, \texttt{snode\_ptr} objects and \texttt{stamp\_t} stamps.
+\begin{lstlisting}[language=C, numbers=none]
+snode_ptr stamp(node *n, stamp_t stamp);
+stamp_t get_stamp(snode_ptr sn);
+node *get_node(snode_ptr sn);
+\end{lstlisting}
+
+The defined \texttt{node} structure changed to
+\begin{lstlisting}[language=C, firstnumber=16]
+typedef struct node {
+    value_t value;
+    _Atomic(snode_ptr) snext;
+} node;
+\end{lstlisting}
+where the pointer to the next \texttt{node} is now stored in the atomic \texttt{snode\_ptr} object \texttt{snext}. The atomicity was chosen that CAS operations can work on this object correctly.
+
+The \texttt{queue} structure is now defined as
+\begin{lstlisting}[language=C, firstnumber=37]
+typedef struct queue {
+    _Atomic(snode_ptr) head;
+    _Atomic(snode_ptr) tail;
+    _Atomic(snode_ptr) *freelists;
+    int max_threads;
+} queue;
+\end{lstlisting}
+where all \texttt{node} pointers were converted to atomic \texttt{snode\_ptr} objects, which is (again) required for correct CAS operations.
+
+The \texttt{init()}, \texttt{destroy()} and \texttt{len()} methods still work in the same way as in the other implementations, while \texttt{enq()} and \texttt{deq()} now follow the lecture notes and the Michael-Scott implementation closely. They still put dequed \texttt{nodes} in a thread local freelist and reuse them. No locks are used in this implementation, and the wait-freeness and concurrent correctness is achieved by using CAS operations
+\begin{lstlisting}[language=C, firstnumber=7]
+#define CAS atomic_compare_exchange_weak
+\end{lstlisting}
+
+Because it uses atomic constructs, such as \texttt{\_Atomic()}, \texttt{atomic\_compare\_exchange\_weak()},\\
+\texttt{atomic\_load()}, and \texttt{atomic\_store()}, it requires the C11 standard to be successfully compiled.
+
+Using my tests (\texttt{make test\_cas}), the sequential correctness test \textbf{is passed}, and the concurrent correctness test \textbf{is passed} by this implementation. The correctness benchmark\\
+(\texttt{build/bench\_cas -c}) \textbf{is passed} as well.
+
+The ABA problem is solved by introducing stamped pointers (\texttt{snode\_ptr}). The stamp acts as 16 bit counter that is incremented every time the \texttt{snode\_ptr} object did a successful CAS update. Thus, a CAS operation can not succeed on a \texttt{snode\_ptr} object (= \texttt{node} pointer) that has been removed (and possibly later reinserted), even if the raw address is reused.
+
+\textit{Nota bene:} Theoretically, the ABA problem still exists, as the 16 bit stamp could overflow and take the exact value it had before it was updated $2^{16}$ times. So if a thread sleeps for the correct amount of time it could still reference a node with a \texttt{snode\_ptr} that was increased $2^{16}$ times and now again matches to the one the thread woke up to. But this is highly unlikely practically speaking ($2^{16}=65536$) and did not occur to me once during my testing.
+
+\section{Exercise 6}
+
+The benchmark can be done using
+\begin{lstlisting}[language=C, numbers=none]
+make bench
+\end{lstlisting}
+which utilizes the \texttt{run\_nebula\_seq.sh} and \texttt{run\_nebula\_conc.sh} scripts to benchmark the implementations on the \texttt{nebula} server for the given configurations: 10 repetitions, batch sizes of 1 and 1000, experiment times of 1s and 5s, number of threads in [1,2,8,10,20,32,45,64] and different enque/deque patterns.
+
+\begin{itemize}
+    \item Pattern \textit{a}: all threads enqueing and dequeuing with the same batch sizes
+    \item Pattern \textit{b}: one thread (first one) enqueing, all other threads dequeuing
+    \item Pattern \textit{c}: all threads with id smaller than $\frac{p}{2}$ enqueing only, the other threads dequeuing only
+    \item Pattern \textit{d}: even numbered threads enqueing, odd numbered threads dequeuing
+\end{itemize}
+
+The benchmark runs for $\sim$4 hours and its output is saved to \texttt{data/*.log}. All log files are already provided in the project, but will be deleted if another benchmark is performed.
+
+To visualize the output, a plotting routine in \texttt{plot.py} (utilizing \texttt{matplotlib}) can be called with
+\begin{lstlisting}[language=C, numbers=none]
+make plot
+\end{lstlisting}
+which stores its output plots in \texttt{plots/*.pdf}. These plots are shown and discussed in the following paragraphs.
+
+The throughput (defined as successful operations (\texttt{enq()} and \texttt{deq()}) per second) is shown in Fig.~\ref{throughput_t1_b1}, Fig.~\ref{throughput_t1_b1000}, Fig.~\ref{throughput_t5_b1}, and Fig.~\ref{throughput_t5_b1000}. One immediately observes, that the sequential implementation works the best in all scenarios and the concurrent implementation gets worse the more threads there are. This makes sense, as we have high contention on shared atomics (or locked sections) which will reduce throughput. Additionally, we have overhead in the concurrent implementations compared to the sequential one. Also we have a lot of CAS retries in an infinite loop upon success.
+
+The implementation using 2 locks (\texttt{conc2}) turns out to have the highest throughput in almost all scenarios, while the one with 1 lock (\texttt{conc}) is most of the time, especially for high thread numbers, the worst. As we can run \texttt{enq()} and \texttt{deq()} concurrently with \texttt{conc2} compared to \texttt{conc}, this makes sense. The CAS implementation (\texttt{cas}) is mostly in between the other two implementations.
+
+For pattern \textit{a} the concurrent throughput seems to be the best in comparison to the other patterns. For pattern \textit{c} the concurrent throughput seems to be the worst. That pattern \textit{a} performs the best is explained as each thread enques and deques, therefore the total number of enques and deques is the same. This is not guaranteed if e.g. one thread only enques and one thread only deques, as they might perform a different amount of operations in a given timeframe. This is exactly observed in patterns \textit{c} and \textit{d}. I would have assumed pattern \textit{b} to perform worst, as only one thread enques, however, it seems that a queue is a bad datastructure to make concurrent, as one thread enqueuing already stretches the queues workload and multiple threads enqueuing does not improve throughput.
+
+Even for 1 thread all concurrent implementations have a throughput that is at least a factor of 3 reduced from the sequential implementation, due to introduced overhead.
+
+The throughput is mostly unaffected by the experiment time (e.g. compare Fig.~\ref{throughput_t1_b1} and Fig.~\ref{throughput_t5_b1}). A higher batch size from 1 to 1000 increases the throughput by a factor of roughly 7.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/throughput_t1_b1.pdf}
+    \caption{Throughput of successful operations for t=1s and batch size=1.}
+    \label{throughput_t1_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/throughput_t1_b1000.pdf}
+    \caption{Throughput of successful operations for t=1s and batch size=1000.}
+    \label{throughput_t1_b1000}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/throughput_t5_b1.pdf}
+    \caption{Throughput of successful operations for t=5s and batch size=1.}
+    \label{throughput_t5_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/throughput_t5_b1000.pdf}
+    \caption{Throughput of successful operations for t=5s and batch size=1000.}
+    \label{throughput_t5_b1000}
+\end{figure}
+
+The according speedup (or actually \textit{speeddown}) is shown in Fig.~\ref{speedup_t1_b1}, Fig.~\ref{speedup_t1_b1000}, Fig.~\ref{speedup_t5_b1}, and Fig.~\ref{speedup_t5_b1000}. The information from these graphs is identical to the already done analysis on the throughput graphs and therefore discussed above. The higher the thread number, the slower the queue gets.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/speedup_t1_b1.pdf}
+    \caption{Speedup of successful operations for t=1s and batch size=1.}
+    \label{speedup_t1_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/speedup_t1_b1000.pdf}
+    \caption{Speedup of successful operations for t=1s and batch size=1000.}
+    \label{speedup_t1_b1000}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/speedup_t5_b1.pdf}
+    \caption{Speedup of successful operations for t=5s and batch size=1.}
+    \label{speedup_t5_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/speedup_t5_b1000.pdf}
+    \caption{Speedup of successful operations for t=5s and batch size=1000.}
+    \label{speedup_t5_b1000}
+\end{figure}
+
+Additionally, I looked into the total number of freelist insert operations (summed over all threads), which is shown in Fig.~\ref{freelist_insert_t1_b1}, Fig.~\ref{freelist_insert_t1_b1000}, Fig.~\ref{freelist_insert_t5_b1}, and Fig.~\ref{freelist_insert_t5_b1000}. The number of freelist inserts generally decreases with increasing thread count, as we do not dequeue so many elements in the same timeframe. The \texttt{conc2} implementation almost always has the highest number of inserts, which makes sense, as it also has the highest throughput. Of course for t=5s we have $\sim$5 times more freelist inserts than for t=1s. It is, however, relatively unaffected by the batch size, where I would have expected also a factor of 7 as shown in the throughput graphs and discussion.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_insert_t1_b1.pdf}
+    \caption{Freelist insert operations for t=1s and batch size=1.}
+    \label{freelist_insert_t1_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_insert_t1_b1000.pdf}
+    \caption{Freelist insert operations for t=1s and batch size=1000.}
+    \label{freelist_insert_t1_b1000}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_insert_t5_b1.pdf}
+    \caption{Freelist insert operations for t=5s and batch size=1.}
+    \label{freelist_insert_t5_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_insert_t5_b1000.pdf}
+    \caption{Freelist insert operations for t=5s and batch size=1000.}
+    \label{freelist_insert_t5_b1000}
+\end{figure}
+
+The maximum length of any thread local freelist is shown in Fig.~\ref{freelist_max_t1_b1}, Fig.~\ref{freelist_max_t1_b1000}, Fig.~\ref{freelist_max_t5_b1}, and Fig.~\ref{freelist_max_t5_b1000}. As expected, it is the value of batch size for pattern \textit{a}, as we immediately dequeue after enqueuing batch size-amount of elements. For the other patterns, the more threads we have, the fewer elements are also at maximum in a freelist, similar to the inserts into the freelist.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_max_t1_b1.pdf}
+    \caption{Maximum freelist length for t=1s and batch size=1.}
+    \label{freelist_max_t1_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_max_t1_b1000.pdf}
+    \caption{Maximum freelist length for t=1s and batch size=1000.}
+    \label{freelist_max_t1_b1000}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_max_t5_b1.pdf}
+    \caption{Maximum freelist length for t=5s and batch size=1.}
+    \label{freelist_max_t5_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/freelist_max_t5_b1000.pdf}
+    \caption{Maximum freelist length for t=5s and batch size=1000.}
+    \label{freelist_max_t5_b1000}
+\end{figure}
+
+In Fig.~\ref{deq_fails_t1_b1}, Fig.~\ref{deq_fails_t1_b1000}, Fig.~\ref{deq_fails_t5_b1}, and Fig.~\ref{deq_fails_t5_b1000} the failed \texttt{deq()} operations are shown. We can see that the CAS implementation has a lot of failed \texttt{deq()} operations, especially for the patterns where we do not immediately deque after enqueuing. For pattern \textit{a} I would have expected the dequeue fails to be always 0, which is the case for the lock based implementations and the batch size $=1000$ CAS benchmark.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/deq_fails_t1_b1.pdf}
+    \caption{Failed \texttt{deq()} operations for t=1s and batch size=1.}
+    \label{deq_fails_t1_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/deq_fails_t1_b1000.pdf}
+    \caption{Failed \texttt{deq()} operations for t=1s and batch size=1000.}
+    \label{deq_fails_t1_b1000}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/deq_fails_t5_b1.pdf}
+    \caption{Failed \texttt{deq()} operations for t=5s and batch size=1.}
+    \label{deq_fails_t5_b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/deq_fails_t5_b1000.pdf}
+    \caption{Failed \texttt{deq()} operations for t=5s and batch size=1000.}
+    \label{deq_fails_t5_b1000}
+\end{figure}
+
+The ratio of successful to total CAS operations is shown in Fig.~\ref{cas_succ}. The more threads, the lower the chance of a successful CAS. All patterns follow the same trend, almost independent of time or batch size. Except for batch size $=1000$ and 10 threads, where for patterns \textit{b}, \textit{c}, and \textit{d} we unexpectedly have more successful CAS operations.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.23\textwidth}
+        \includegraphics[width=\linewidth]{plots/cas_succ_t1_b1.pdf}
+        \caption*{t=1, batch size=1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+        \includegraphics[width=\linewidth]{plots/cas_succ_t1_b1000.pdf}
+        \caption*{t=1, batch size=1000}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+        \includegraphics[width=\linewidth]{plots/cas_succ_t5_b1.pdf}
+        \caption*{t=5, batch size=1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.23\textwidth}
+        \includegraphics[width=\linewidth]{plots/cas_succ_t5_b1000.pdf}
+        \caption*{t=5, batch size=1000}
+    \end{minipage}
+    
+    \caption{Ratio of successful CAS operations.}
+    \label{cas_succ}
+\end{figure}
+
+\section{Exercise 7}
+
+The definition of linearizability is that method calls should appear to happen in a one-at-a-time ("atomic"), sequential order. Each method call should appear to take effect in real-time-order, instantaneously at some point (the linearization point) between invocation and response event.
+
+For the \texttt{enq()} operation, it occurs on a thread local queue. For lock-free queues, each enqueue has a linearization point when the value is successfully linked into the queue (e.g. successful CAS of setting tail-\gt next field). So we have linearizability in the \texttt{enq()} operation at the point where it is linearized in the thread local queue.
+
+For a successful \texttt{deq()} operation, it occurs on a thread local queue. Again, for lock-free queues, each dequeue has a linearization point (e.g. successful CAS of updating the head). So we have linearizability in the \texttt{deq()} operation at the point where it is linearized in the thread local queue.
+
+If the \texttt{deq()} operation fails, we cannot assign a linearization point. Assuming thread A tries to dequeue and finds all thread local queues empty, thus the \texttt{deq()} operation fails. For a linearization point one needs a specific timepoint when it is true that the bag is empty. Other threads, however, could concurrently enqueue elements after thread A has checked some queues, so it can not be the last local queue check. It also cannot be the first checked local queue, as other threads might enqueue in other local queues, making the bag not empty. Even if thread A has scanned all queues and sees them as empty, another thread could have enqueued before thread A finishes, so at no single timepoint we can guarantee that the bag was empty. Thus, it is not linearizable.
+
+Sequential consistency requires that method calls should appear to happen in a one-at-a-time ("atomic"), sequential order. So for each thread, method calls should appear to take effect in program order. Therefore, it does not require linearization points.
+
+For the \texttt{enq()} operation and successful \texttt{deq()} operation we have sequential consistency with the same arguments as the linearization. Also, their sequential consistency follows from the underlying correctness of the queues.
+
+Failing the \texttt{deq()} operation is still consistent with some sequential ordering. One can e.g. shift the failing dequeue of thread A happened before another threads enqueue, or the other way around. For sequential consistency, the operation can be placed anywhere in the global order, as long as per-thread order is respected. Thus, this can always be found and makes the concurrent bag sequential consistent.
+
+\section{File structure}
+
+Although I kept the project skeleton structure, I changed a few implementations. One can still use the required commands
+\begin{lstlisting}[language=bash, numbers=none]
+make zip
+bash run_nebula.sh project.zip small-bench
+make small-plot
+\end{lstlisting}
+
+However, the \texttt{run\_nebula.sh} script was rewritten to only execute
+\begin{lstlisting}[language=bash, numbers=none]
+make small-bench
+\end{lstlisting}
+
+The \texttt{small-bench} benchmark tests all 4 implementations, but only with 1 repetition, a time of 1s and batch size of 1000. Additionally, the concurrent implementations only execute on threads of [1,32,64] and pattern \textit{a}. It executed for me in 58-62 seconds.
+
+The file and folder structure is as follows:
+\begin{itemize}
+    \item In the \texttt{src} folder, all \texttt{*.c} source code files and \texttt{*.h} header files can be found.
+    \item The \texttt{build} folder will contain the built ELF executable files. It is empty upon submission.
+    \item The \texttt{data} folder contains the \texttt{*.log} benchmark output files for all required configurations.
+    \item The \texttt{plots} folder contains all plots created from the benchmark data. 
+    \item The \texttt{report} folder contains this \texttt{report.pdf} report, as well as the report in \texttt{report.tex} latex format.
+    \item The \texttt{Makefile} contains all important commands for building, testing and benchmarking.
+    \item The \texttt{plot.py} python script is used for generating the plots from the benchmark data.
+    \item The \texttt{run\_nebula.sh} bash script just executes \texttt{make small-bench}.
+    \item The \texttt{run\_nebula\_conc.sh} bash script benchmarks a concurrent implementation on the nebula server.
+    \item The \texttt{run\_nebula\_seq.sh} bash script benchmarks a sequential implementation on the nebula server.
+    \item The \texttt{README.md} gives a short overview over the project.
+\end{itemize}
+
+\end{document}
