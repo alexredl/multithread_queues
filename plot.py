@@ -224,7 +224,7 @@ for batch in batches:
         axs[i].set_yscale('log')
         axs[i].set_xlim((1, max(threads)))
     axs[0].legend(fontsize=7)
-    axs[0].set_ylabel('Throughput [succ. ops / s]')
+    axs[0].set_ylabel('Throughput [ops / s]')
     plt.tight_layout()
     if show:
       plt.show()

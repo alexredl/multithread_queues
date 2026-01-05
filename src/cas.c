@@ -149,7 +149,7 @@ int deq(value_t *v, queue *q) {
       *v = next->value;
       if (CAS(&q->head, &shead, stamp(next, get_stamp(shead) + 1))) {
         atomic_store(&head->snext, atomic_load(&q->freelists[id]));
-        atomic_store(&q->freelists[id], shead);
+        atomic_store(&q->freelists[id], stamp(head, get_stamp(shead) + 1));
         return QUEUE_OK;
       }
     }
@@ -175,7 +175,7 @@ int deq_stats(value_t *v, queue *q, stats *s) {
       if (CAS(&q->head, &shead, stamp(next, get_stamp(shead) + 1))) {
         s->cas_succ++;
         atomic_store(&head->snext, atomic_load(&q->freelists[id]));
-        atomic_store(&q->freelists[id], shead);
+        atomic_store(&q->freelists[id], stamp(head, get_stamp(shead) + 1));
         s->freelist_len++;
         if (s->freelist_len > s->freelist_max) {
           s->freelist_max = s->freelist_len;
